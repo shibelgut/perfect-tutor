@@ -1,0 +1,175 @@
+  {% extends 'base.html' %}
+
+  {% block container %}
+    {% if goal == "relocate" %}
+    <h1 class="h1 text-center w-50 mx-auto mt-1 py-5 mb-4"><strong>🚜<br />Преподаватели <br>  для переезда</strong></h1>
+    <div class="row">
+      <div class="col-12 col-lg-10 offset-lg-1 m-auto">
+        {% if list_teachers|length == 1 %}
+        <h5 class="h5 text-center">{{ list_teachers|length }} преподаватель</h5>
+        {% elif list_teachers|length > 1 and list_teachers|length < 5 %}
+        <h5 class="h5 text-center">{{ list_teachers|length }} преподавателя</h5>
+        {% else %}
+        <h5 class="h5 text-center">{{ list_teachers|length }} преподавателей</h5>
+        {% endif %}
+        {% for tutor in list_teachers %}
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-3"><img src="{{ tutor.picture }}" class="img-fluid" alt=""></div>
+              <div class="col-9">
+                {% if tutor.rating > 4.5 %}
+                <p class="float-right">&#128525;<b>Рейтинг: {{ tutor.rating }} Ставка: {{ tutor.price }} / час</b></p>
+                {% else %}
+                <p class="float-right"><b>Рейтинг: {{ tutor.rating }} Ставка: {{ tutor.price }} / час</b></p>
+                {% endif %}
+                <h2 class="h4"><b>{{ tutor.name }}</b></h2>
+                <p>{{ tutor.about }}</p>
+                <a href="/profiles/{{ tutor.id }}/" class="btn btn-outline-primary btn-sm mr-3 mb-2">Показать информацию и расписание</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% elif goal == "travel" %}
+    <h1 class="h1 text-center w-50 mx-auto mt-1 py-5 mb-4"><strong>⛱<br />Преподаватели <br>  для путешествий</strong></h1>
+    <div class="row">
+      <div class="col-12 col-lg-10 offset-lg-1 m-auto">
+        {% if list_teachers|length == 1 %}
+        <h5 class="h5 text-center">{{ list_teachers|length }} преподаватель</h5>
+        {% elif list_teachers|length > 1 and list_teachers|length < 5 %}
+        <h5 class="h5 text-center">{{ list_teachers|length }} преподавателя</h5>
+        {% else %}
+        <h5 class="h5 text-center">{{ list_teachers|length }} преподавателей</h5>
+        {% endif %}
+        {% for tutor in list_teachers %}
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-3"><img src="{{ tutor.picture }}" class="img-fluid" alt=""></div>
+              <div class="col-9">
+                {% if tutor.rating > 4.5 %}
+                <p class="float-right">&#128525;<b>Рейтинг: {{ tutor.rating }} Ставка: {{ tutor.price }} / час</b></p>
+                {% else %}
+                <p class="float-right"><b>Рейтинг: {{ tutor.rating }} Ставка: {{ tutor.price }} / час</b></p>
+                {% endif %}
+                <h2 class="h4"><b>{{ tutor.name }}</b></h2>
+                <p>{{ tutor.about }}</p>
+                <a href="/profiles/{{ tutor.id }}/" class="btn btn-outline-primary btn-sm mr-3 mb-2">Показать информацию и расписание</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% elif goal == "work" %}
+    <h1 class="h1 text-center w-50 mx-auto mt-1 py-5 mb-4"><strong>🏢<br />Преподаватели <br>  для работы</strong></h1>
+    <div class="row">
+      <div class="col-12 col-lg-10 offset-lg-1 m-auto">
+        {% if list_teachers|length == 1 %}
+        <h5 class="h5 text-center">{{ list_teachers|length }} преподаватель</h5>
+        {% elif list_teachers|length > 1 and list_teachers|length < 5 %}
+        <h5 class="h5 text-center">{{ list_teachers|length }} преподавателя</h5>
+        {% else %}
+        <h5 class="h5 text-center">{{ list_teachers|length }} преподавателей</h5>
+        {% endif %}
+        {% for tutor in list_teachers %}
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-3"><img src="{{ tutor.picture }}" class="img-fluid" alt=""></div>
+              <div class="col-9">
+                {% if tutor.rating > 4.5 %}
+                <p class="float-right">&#128525;<b>Рейтинг: {{ tutor.rating }} Ставка: {{ tutor.price }} / час</b></p>
+                {% else %}
+                <p class="float-right"><b>Рейтинг: {{ tutor.rating }} Ставка: {{ tutor.price }} / час</b></p>
+                {% endif %}
+                <h2 class="h4"><b>{{ tutor.name }}</b></h2>
+                <p>{{ tutor.about }}</p>
+                <a href="/profiles/{{ tutor.id }}/" class="btn btn-outline-primary btn-sm mr-3 mb-2">Показать информацию и расписание</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% elif goal == "study" %}
+    <h1 class="h1 text-center w-50 mx-auto mt-1 py-5 mb-4"><strong>🏫<br />Преподаватели <br>  для учебы</strong></h1>
+    <div class="row">
+      <div class="col-12 col-lg-10 offset-lg-1 m-auto">
+        {% if list_teachers|length == 1 %}
+        <h5 class="h5 text-center">{{ list_teachers|length }} преподаватель</h5>
+        {% elif list_teachers|length > 1 and list_teachers|length < 5 %}
+        <h5 class="h5 text-center">{{ list_teachers|length }} преподавателя</h5>
+        {% else %}
+        <h5 class="h5 text-center">{{ list_teachers|length }} преподавателей</h5>
+        {% endif %}
+        {% for tutor in list_teachers %}
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-3"><img src="{{ tutor.picture }}" class="img-fluid" alt=""></div>
+              <div class="col-9">
+                {% if tutor.rating > 4.5 %}
+                <p class="float-right">&#128525;<b>Рейтинг: {{ tutor.rating }} Ставка: {{ tutor.price }} / час</b></p>
+                {% else %}
+                <p class="float-right"><b>Рейтинг: {{ tutor.rating }} Ставка: {{ tutor.price }} / час</b></p>
+                {% endif %}
+                <h2 class="h4"><b>{{ tutor.name }}</b></h2>
+                <p>{{ tutor.about }}</p>
+                <a href="/profiles/{{ tutor.id }}/" class="btn btn-outline-primary btn-sm mr-3 mb-2">Показать информацию и расписание</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% elif goal == "programing" %}
+    <h1 class="h1 text-center w-50 mx-auto mt-1 py-5 mb-4"><strong>&#128187;<br />Преподаватели <br>  для программирования</strong></h1>
+    <div class="row">
+      <div class="col-12 col-lg-10 offset-lg-1 m-auto">
+        {% if list_teachers|length == 1 %}
+        <h5 class="h5 text-center">{{ list_teachers|length }} преподаватель</h5>
+        {% elif list_teachers|length > 1 and list_teachers|length < 5 %}
+        <h5 class="h5 text-center">{{ list_teachers|length }} преподавателя</h5>
+        {% else %}
+        <h5 class="h5 text-center">{{ list_teachers|length }} преподавателей</h5>
+        {% endif %}
+        {% for tutor in list_teachers %}
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-3"><img src="{{ tutor.picture }}" class="img-fluid" alt=""></div>
+              <div class="col-9">
+                {% if tutor.rating > 4.5 %}
+                <p class="float-right">&#128525;<b>Рейтинг: {{ tutor.rating }} Ставка: {{ tutor.price }} / час</b></p>
+                {% else %}
+                <p class="float-right"><b>Рейтинг: {{ tutor.rating }} Ставка: {{ tutor.price }} / час</b></p>
+                {% endif %}
+                <h2 class="h4"><b>{{ tutor.name }}</b></h2>
+                <p>{{ tutor.about }}</p>
+                <a href="/profiles/{{ tutor.id }}/" class="btn btn-outline-primary btn-sm mr-3 mb-2">Показать информацию и расписание</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    <h2 class="text-center mt-5 mb-3">Не нашли своего репетитора?</h2>
+    <p class="text-center mb-4">Расскажите, кто вам нужен и мы подберем его сами</p>
+    <div class="text-center pb-5">
+        <a href="/request/" class="btn btn-primary">Заказать подбор</a>
+    </div>
+  {% endblock %}

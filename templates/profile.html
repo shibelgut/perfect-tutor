@@ -1,0 +1,96 @@
+  {% extends 'base.html' %}
+
+  {% block container %}
+    <div class="card my-4 mx-auto">
+      <div class="card-body m-2 m-md-4">
+        <article class="row">
+          <div class="col-5"><img src="{{ data[id].picture }}" class="img-fluid" alt=""></div>
+          <div class="col-7">
+
+            <section class="teacher=info">
+              <h1 class="h2"><b>{{ data[id].name }}</b></h1>
+              {% if data[id].rating > 4.5 %}
+              <p><span class="badge badge-info mr-2">{{ goal }}</span>&#128525;<b>️Рейтинг: {{ data[id].rating }} Ставка: {{ data[id].price }} / час</b></p>
+              {% else%}
+              <p><span class="badge badge-info mr-2">{{ goal }}</span><b>Рейтинг: {{ data[id].rating }} Ставка: {{ data[id].price }} / час</b></p>
+              {% endif %}
+              <p>{{ data[id].about }}</p>
+            </section>
+          </div>
+        </article>
+
+        <article class="row">
+          <div class="col-12">
+            <section class="available">
+
+              <h4 class="mb-4 mt-5"><b>Записаться на пробный урок</b></h4>
+
+              <h6 class="mt-4"><b>Понедельник</b></h6>
+              {% set count = namespace(value=0) %}
+              {% for hour, place in data[id].free.mon.items() %} {% if place %}
+              <a href="/booking/{{ id }}/mon/{{ hour }}/" class="btn btn-outline-success mr-2">{{ hour }} свободно</a>
+              {% set count.value = count.value + 1 %} {% endif %} {% endfor %}
+              {% if count.value == 0 %}
+              <p>Нет свободных уроков</p>
+              {% endif %}
+
+              <h6 class="mt-4"><b>Вторник</b></h6>
+              {% set count = namespace(value=0) %}
+              {% for hour, place in data[id].free.tue.items() %} {% if place %}
+              <a href="/booking/{{ id }}/tue/{{ hour }}/" class="btn btn-outline-success  mr-2">{{ hour }} свободно</a>
+              {% set count.value = count.value + 1 %} {% endif %} {% endfor %}
+              {% if count.value == 0 %}
+              <p>Нет свободных уроков</p>
+              {% endif %}
+
+              <h6 class="mt-4"><b>Среда</b></h6>
+              {% set count = namespace(value=0) %}
+              {% for hour, place in data[id].free.wed.items() %} {% if place %}
+              <a href="/booking/{{ id }}/wed/{{ hour }}/" class="btn btn-outline-success  mr-2">{{ hour }} свободно</a>
+              {% set count.value = count.value + 1 %} {% endif %} {% endfor %}
+              {% if count.value == 0 %}
+              <p>Нет свободных уроков</p>
+              {% endif %}
+
+              <h6 class="mt-4"><b>Четверг</b></h6>
+              {% set count = namespace(value=0) %}
+              {% for hour, place in data[id].free.thu.items() %} {% if place %}
+              <a href="/booking/{{ id }}/thu/{{ hour }}/" class="btn btn-outline-success  mr-2">{{ hour }} свободно</a>
+              {% set count.value = count.value + 1 %} {% endif %} {% endfor %}
+              {% if count.value == 0 %}
+              <p>Нет свободных уроков</p>
+              {% endif %}
+
+              <h6 class="mt-4"><b>Пятница</b></h6>
+              {% set count = namespace(value=0) %}
+              {% for hour, place in data[id].free.fri.items() %} {% if place %}
+              <a href="/booking/{{ id }}/fri/{{ hour }}/" class="btn btn-outline-success  mr-2">{{ hour }} свободно</a>
+              {% set count.value = count.value + 1 %} {% endif %} {% endfor %}
+              {% if count.value == 0 %}
+              <p>Нет свободных уроков</p>
+              {% endif %}
+
+              <h6 class="mt-4"><b>Суббота</b></h6>
+              {% set count = namespace(value=0) %}
+              {% for hour, place in data[id].free.sat.items() %} {% if place %}
+              <a href="/booking/{{ id }}/sat/{{ hour }}/" class="btn btn-outline-success  mr-2">{{ hour }} свободно</a>
+              {% set count.value = count.value + 1 %} {% endif %} {% endfor %}
+              {% if count.value == 0 %}
+              <p>Нет свободных уроков</p>
+              {% endif %}
+
+              <h6 class="mt-4"><b>Воскресенье</b></h6>
+              {% set count = namespace(value=0) %}
+              {% for hour, place in data[id].free.sun.items() %} {% if place %}
+              <a href="/booking/{{ id }}/sun/{{ hour }}/" class="btn btn-outline-success  mr-2">{{ hour }} свободно</a>
+              {% set count.value = count.value + 1 %} {% endif %} {% endfor %}
+              {% if count.value == 0 %}
+              <p>Нет свободных уроков</p>
+              {% endif %}
+
+            </section>
+          </div>
+        </article>
+      </div>
+    </div>
+  {% endblock %}
