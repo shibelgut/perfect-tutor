@@ -127,4 +127,5 @@ def booking_done():
             return render_template('booking_done.html', week_day=value, time=time, name=name, phone=phone)
 
 
-app.run()
+if __name__ == '__main__':
+    app.run()
